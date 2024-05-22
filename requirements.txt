@@ -1,0 +1,10 @@
+torch
+numba
+opencv-python
+easydict
+scipy
+matplotlib
+torchvision
+tqdm
+toml
+lpips
