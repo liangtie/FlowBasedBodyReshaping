@@ -91,7 +91,7 @@ class PersonInfo(object):
                 if arm_box[0] is None:
                     self._logger.logger.warn('arm_box is None')
                     arm_box = self.human_box
-            
+
                 arm_box_height = arm_box[1] - arm_box[0]
                 arm_box_width = arm_box[3] - arm_box[2]
 
@@ -114,7 +114,7 @@ class PersonInfo(object):
                     elif scale.startswith('lower'):
                         roi_bbox = [max(self.human_box[0], self.leg_box[0]), min(self.human_box[1], self.leg_box[1]),
                                     max(self.human_box[2], self.leg_box[2]), min(self.human_box[3], self.leg_box[3])]
-    
+
                         if roi_bbox[1] - roi_bbox[0] < 1 or roi_bbox[3] - roi_bbox[2] < 1:
                             continue
                 self._logger.logger.info('time of gen roi_bbox: {}ms'.format(int((time.time() - t1) * 1000)))
