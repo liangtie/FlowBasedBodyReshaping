@@ -1,3 +1,12 @@
 .venv
 models
 __pycache__
+*.png
+*.jpg
+*.jpeg
+*.gif
+.venv
+__pycache__
+.vscode
+*.pth
+*.pyc
