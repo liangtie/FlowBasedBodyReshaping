@@ -54,9 +54,6 @@ def body_shaping():
     # Send the reshaped image file as response
     response = send_file(res_img, mimetype=file.mimetype)
     
-    # Clean up directories
-    reshape_worker.clear_up_dirs()
-    
     return response
 
 if __name__ == '__main__':

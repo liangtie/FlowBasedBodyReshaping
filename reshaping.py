@@ -20,13 +20,21 @@ class ROI:
     ALL = 2  # 全身
 
 AVAILABLE_SCALES = ['upper_0.2','lower_0.2', 'upper_2']
+OUT_DIR = "out"
 
 class ReShaping:
     def __init__(self) -> None:
+        # remove all content in OUT_DIR
+        if os.path.exists(OUT_DIR):
+            shutil.rmtree(OUT_DIR)
+
+        # mkdir the OUT_DIR
+        os.mkdir(OUT_DIR)
+
         # use current date time as the name of the folder
         current_date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.src_dir_name = f'{current_date_time}_src'
-        self.dst_dir_name = f'{current_date_time}_dst'
+        self.src_dir_name =  os.path.join(OUT_DIR, f'{current_date_time}_src')
+        self.dst_dir_name =  os.path.join(OUT_DIR,f'{current_date_time}_dst')
         # convert the relative path to absolute path
         self.src_dir_name = os.path.abspath(self.src_dir_name)
         self.dst_dir_name = os.path.abspath(self.dst_dir_name)
@@ -55,7 +63,8 @@ class ReShaping:
             if image_name.endswith('body_reshape_model'):
                 return os.path.join(self.dst_dir_name, i)
         return None
-
+    def __del__(self):
+        self.clear_up_dirs()
     def clear_up_dirs(self):
         for i in self.dst_dir_name, self.src_dir_name:
             if os.path.exists(i):

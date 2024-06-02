@@ -7,7 +7,7 @@ def test_body_shaping_api(file_path, degree, roi):
     # Prepare the files and data
     files = {'file': open(file_path, 'rb')}
     json_data = {'degree': degree, 'roi': roi}
-    
+
     data = {'json': json.dumps(json_data)}
 
     # Send the POST request
@@ -26,10 +26,9 @@ def test_body_shaping_api(file_path, degree, roi):
 if __name__ == '__main__':
     # Path to the image file you want to test with
     file_path = 'test.jpg'
-    
-    # Example parameters
-    degree = 1.0  # Example degree value
-    roi = 2
+
+    degree = 1.0  # 美型程度0.1 ~ 1.0
+    roi = 2 # 0: 胳膊 ; 1 :腿 ; 2 : 全身
 
     # Test the API
     test_body_shaping_api(file_path, degree, roi)
