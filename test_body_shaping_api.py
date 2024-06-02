@@ -2,7 +2,7 @@ import json
 import requests
 
 def test_body_shaping_api(file_path, degree, roi):
-    url = 'http://127.0.0.1:7565/body_shaping'
+    url = 'http://8.140.57.103:7565/body_shaping'
     
     # Prepare the files and data
     files = {'file': open(file_path, 'rb')}
