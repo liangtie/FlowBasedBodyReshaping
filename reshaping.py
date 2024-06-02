@@ -41,6 +41,9 @@ class ReShaping:
         TESTCONFIG.src_dir = self.src_dir_name
         TESTCONFIG.save_dir = self.dst_dir_name
         TESTCONFIG.flow_scales = [ AVAILABLE_SCALES[roi] if roi < len(AVAILABLE_SCALES) else AVAILABLE_SCALES[2]  ]
+        output_path = os.path.join(self.dst_dir_name, 'test_demo_setting.toml')
+        with open(output_path, 'w') as f:
+            toml.dump(TESTCONFIG, f)
 
         run_test()
 

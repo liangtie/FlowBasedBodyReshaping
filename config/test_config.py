@@ -18,7 +18,7 @@ TESTCONFIG.divider = 20
 TESTCONFIG.reshape_ckpt_path = 'models/body_reshape_model.pth'
 
 TESTCONFIG.src_dir = ''
-TESTCONFIG.gt_dir = ''
+TESTCONFIG.gt_dir = 'null'
 TESTCONFIG.save_dir = './test_output'
 
 
