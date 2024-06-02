@@ -6,16 +6,13 @@
 from reshape_base_algos.body_retoucher import BodyRetoucher
 import time
 import cv2
-import argparse
 import numpy as np
 import glob
 import tqdm
 import os
-import json
 import shutil
 from utils.eval_util import cal_lpips_and_ssim, psnr
-from config.test_config import TESTCONFIG, load_config
-import toml
+from config.test_config import TESTCONFIG
 
 
 def recurve_search(root_path, all_paths, suffix=[]):

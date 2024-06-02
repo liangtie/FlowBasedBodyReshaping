@@ -27,10 +27,19 @@ class ReShaping:
         current_date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.src_dir_name = f'{current_date_time}_src'
         self.dst_dir_name = f'{current_date_time}_dst'
+        # convert the relative path to absolute path
+        self.src_dir_name = os.path.abspath(self.src_dir_name)
+        self.dst_dir_name = os.path.abspath(self.dst_dir_name)
+
+        for i in self.src_dir_name, self.dst_dir_name:
+            if not os.path.exists(i):
+                os.mkdir(i)
 
     def reshape_body(self, img_binary, degree=1.0 , roi = ROI.ALL):
         img_binary.save(os.path.join(self.src_dir_name, img_binary.filename))
         TESTCONFIG.degree = degree
+        TESTCONFIG.src_dir = self.src_dir_name
+        TESTCONFIG.save_dir = self.dst_dir_name
         TESTCONFIG.flow_scales = [ AVAILABLE_SCALES[roi] if roi < len(AVAILABLE_SCALES) else AVAILABLE_SCALES[2]  ]
 
         run_test()
