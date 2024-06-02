@@ -8,3 +8,13 @@ torchvision
 tqdm
 toml
 lpips
+
+Flask
+Flask-JSON
+requests
+urllib3
+Flask-Cors
+pydantic
+jsondiff
+gevent
+peewee

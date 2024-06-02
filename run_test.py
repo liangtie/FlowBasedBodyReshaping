@@ -30,14 +30,15 @@ def recurve_search(root_path, all_paths, suffix=[]):
             recurve_search(target_file, all_paths, suffix)
 
 
-if __name__ == "__main__":
-    timestamp = time.strftime("%Y%m%d-%H%M%S", time.localtime())
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str, default='config/test_cvpr_setting.toml', required=True)
-    args = parser.parse_args()
+def run_test():
 
-    with open(args.config) as f:
-        load_config(toml.load(f))
+    # timestamp = time.strftime("%Y%m%d-%H%M%S", time.localtime())
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument('--config', type=str, default='config/test_cvpr_setting.toml', required=True)
+    # args = parser.parse_args()
+
+    # with open(args.config) as f:
+    #     load_config(toml.load(f))
 
     print('TEST CONFIG: \n{}'.format(TESTCONFIG))
     print("loading model:{}".format(TESTCONFIG.reshape_ckpt_path))
@@ -60,7 +61,7 @@ if __name__ == "__main__":
 
     os.makedirs(TESTCONFIG.save_dir, exist_ok=True)
 
-    shutil.copy(args.config, os.path.join(TESTCONFIG.save_dir, os.path.basename(args.config )))
+    # shutil.copy(args.config, os.path.join(TESTCONFIG.save_dir, os.path.basename(args.config )))
 
     if os.path.isfile(TESTCONFIG.src_dir):
         img_list = [TESTCONFIG.src_dir]

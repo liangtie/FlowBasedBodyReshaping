@@ -110,7 +110,7 @@ class PersonInfo(object):
                                     max(self.human_box[2], arm_box[2]), min(self.human_box[3], arm_box[3])]
                         if roi_bbox[1] - roi_bbox[0] < 1 or roi_bbox[3] - roi_bbox[2] < 1:
                             continue
-                           
+
                     elif scale.startswith('lower'):
                         roi_bbox = [max(self.human_box[0], self.leg_box[0]), min(self.human_box[1], self.leg_box[1]),
                                     max(self.human_box[2], self.leg_box[2]), min(self.human_box[3], self.leg_box[3])]
